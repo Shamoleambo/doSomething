@@ -3,6 +3,7 @@ package com.tidz.doSomething.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Owner {
@@ -19,6 +20,9 @@ public class Owner {
     private String email;
     @Column(name = "birth_day", nullable = false)
     private LocalDate birthDay;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Car> cars;
 
     public Owner() {
 

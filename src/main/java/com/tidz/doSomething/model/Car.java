@@ -20,6 +20,10 @@ public class Car {
     @Column(name = "price", nullable = false)
     private Double price;
 
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
+
     public Car() {
 
     }
